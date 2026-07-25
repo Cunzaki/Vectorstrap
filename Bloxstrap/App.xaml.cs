@@ -19,16 +19,15 @@ namespace Bloxstrap
     public partial class App : Application
     {
 #if QA_BUILD
-        public const string ProjectName = "Froststrap-QA";
+        public const string ProjectName = "Vectorstrap-QA";
 #else
-        public const string ProjectName = "Froststrap";
+        public const string ProjectName = "Vectorstrap";
 #endif
-        public const string ProjectOwner = "Froststrap";
-        public const string ProjectRepository = "Froststrap/Froststrap";
-        public const string ProjectDownloadLink = "https://github.com/Froststrap/Froststrap/releases";
-        public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
-        public const string ProjectSupportLink = "https://github.com/Froststrap/Froststrap/issues/new";
-        public const string ProjectRemoteDataLink = "https://raw.githubusercontent.com/RealMeddsam/config/refs/heads/main/Data.json";
+        public const string ProjectOwner = "Cunzaki";
+        public const string ProjectRepository = "Cunzaki/Vectorstrap";
+        public const string ProjectDownloadLink = "https://github.com/Cunzaki/Vectorstrap/releases";
+        public const string ProjectHelpLink = "https://github.com/Froststrap/Froststrap";
+        public const string ProjectSupportLink = "https://github.com/Cunzaki/Vectorstrap/issues/new";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta.exe";
         public const string RobloxStudioAppName = "RobloxStudioBeta.exe";
@@ -397,9 +396,14 @@ namespace Bloxstrap
                 // to fix error System.IO.IOException: No se encuentra el recurso 'ui/style/.xaml'.
                 // when i put in installer dosent work
                 // if i try to fix in wpfuiwindow also dosent work
-                if (Settings.Prop.Theme > Enums.Theme.Custom)
+                if (Settings.Prop.Theme is Enums.Theme.Default or Enums.Theme.Froststrap or Enums.Theme.Light)
                 {
-                    Settings.Prop.Theme = Enums.Theme.Dark;
+                    Settings.Prop.Theme = Enums.Theme.Vectorstrap;
+                    Settings.Save();
+                }
+                else if (Settings.Prop.Theme > Enums.Theme.Custom)
+                {
+                    Settings.Prop.Theme = Enums.Theme.Vectorstrap;
                     Settings.Save();
                 }
 

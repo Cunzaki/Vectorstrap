@@ -208,18 +208,9 @@ namespace Bloxstrap
                 if (!App.StudioState.Loaded)
                     App.StudioState.Load();
 
-                if (App.Settings.Prop.ShowUsingFroststrapRPC && App.FrostRPC == null)
-                {
-                    App.FrostRPC = new FroststrapRichPresence();
-                }
-
                 var window = new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning);
 
-                App.FrostRPC?.SetPage("Settings");
-
                 window.ShowDialog();
-
-                App.FrostRPC?.ResetPresence();
             }
             else
             {
@@ -236,20 +227,11 @@ namespace Bloxstrap
 
         public static void LaunchMenu()
         {
-            if (App.Settings.Prop.ShowUsingFroststrapRPC && App.FrostRPC == null)
-            {
-                App.FrostRPC = new FroststrapRichPresence();
-            }
-
             var dialog = new LaunchMenuDialog();
-
-            App.FrostRPC?.SetPage("Launch Menu");
 
             dialog.ShowDialog();
 
             ProcessNextAction(dialog.CloseAction);
-
-            App.FrostRPC?.ResetPresence();
         }
 
         public static void LaunchRoblox(LaunchMode launchMode)

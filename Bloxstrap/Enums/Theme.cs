@@ -7,6 +7,7 @@
         Dark,
         Light,
         Froststrap,
+        Vectorstrap,
         Purple,
         Blue,
         Green,

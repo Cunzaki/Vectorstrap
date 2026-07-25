@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Animation;
+﻿using System.Reflection;
 
 namespace Bloxstrap
 {
@@ -21,6 +14,8 @@ namespace Bloxstrap
 
         public event EventHandler DataLoaded = null!;
 
+        private const string BundledDataResourceName = "Bloxstrap.Resources.DefaultData.json";
+
         public void Subscribe(EventHandler Handler)
         {
             switch (LoadedState)
@@ -32,7 +27,7 @@ namespace Bloxstrap
                     Handler(this, EventArgs.Empty);
                     break;
                 default:
-                    Handler(this, EventArgs.Empty); // data loading most likely failed but we still have the default/local config
+                    Handler(this, EventArgs.Empty);
                     break;
             }
         }
@@ -40,7 +35,7 @@ namespace Bloxstrap
         public async Task WaitUntilDataFetched()
         {
             const int delay = 100;
-            const int maxTries = 30; // 3 seconds
+            const int maxTries = 30;
             int tries = 0;
 
             while (LoadedState == GenericTriState.Unknown)
@@ -53,42 +48,51 @@ namespace Bloxstrap
             }
         }
 
-        // remember that our data isnt necessary, we can fetch it in the background 
+        /// <summary>
+        /// Loads bundled/local package map data only (no Froststrap remote config).
+        /// </summary>
         public async Task LoadData()
         {
             const string LOG_IDENT = $"{nameof(RemoteDataManager)}::LoadData";
-            if (App.Settings.Prop.ForceLocalData || (App.LaunchSettings.WatcherFlag.Active || App.LaunchSettings.MultiInstanceWatcherFlag.Active))
+
+            await Task.CompletedTask;
+
+            try
             {
-                App.Logger.WriteLine(LOG_IDENT, "Force loading local data");
-                this.Load(false);
-
-                LoadedState = GenericTriState.Successful; // we treat it as successful to simulate the production data
+                EnsureBundledDataPresent();
+                Load(false);
+                LoadedState = GenericTriState.Successful;
+                App.Logger.WriteLine(LOG_IDENT, "Local bundled data loaded");
             }
-            else
-                try
-                {
-                    Prop = await Http.GetJson<RemoteDataBase>(App.ProjectRemoteDataLink);
-
-                    LoadedState = GenericTriState.Successful;
-                    App.Logger.WriteLine(LOG_IDENT, "Remote data loaded");
-                }
-                catch (Exception ex)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Could not load remote data");
-                    App.Logger.WriteException(LOG_IDENT, ex);
-
-                    App.Logger.WriteLine(LOG_IDENT, "Loading local data");
-                    this.Load(false);
-
-                    LoadedState = GenericTriState.Failed;
-                }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Could not load bundled data");
+                App.Logger.WriteException(LOG_IDENT, ex);
+                LoadedState = GenericTriState.Failed;
+            }
 
             DataLoaded?.Invoke(this, EventArgs.Empty);
 
             if (LoadedState == GenericTriState.Successful)
-                this.Save();
+                Save();
 
             App.Logger.WriteLine(LOG_IDENT, $"Loading finished with status: {LoadedState}");
+        }
+
+        private void EnsureBundledDataPresent()
+        {
+            if (File.Exists(FileLocation))
+                return;
+
+            var directory = Path.GetDirectoryName(FileLocation);
+            if (!string.IsNullOrEmpty(directory))
+                Directory.CreateDirectory(directory);
+
+            using var resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(BundledDataResourceName)
+                ?? throw new InvalidOperationException($"Missing embedded resource '{BundledDataResourceName}'");
+
+            using var output = File.Create(FileLocation);
+            resourceStream.CopyTo(output);
         }
     }
 }

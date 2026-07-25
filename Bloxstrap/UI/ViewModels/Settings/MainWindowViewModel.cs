@@ -7,10 +7,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
     public class MainWindowViewModel : NotifyPropertyChangedViewModel
     {
         public ICommand OpenAboutCommand => new RelayCommand(OpenAbout);
-        public ICommand OpenAccountManagerCommand => new RelayCommand(OpenAccountManager);
         public ICommand SaveSettingsCommand => new RelayCommand(SaveSettings);
         public ICommand SaveAndLaunchPlayerCommand => new RelayCommand(() => SaveAndLaunch("player"));
-        public ICommand SaveAndLaunchStudioCommand => new RelayCommand(() => SaveAndLaunch("studio"));
         public ICommand RestartAppCommand => new RelayCommand(RestartApp);
         public ICommand CloseWindowCommand => new RelayCommand(CloseWindow);
 
@@ -45,20 +43,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void OpenAbout()
         {
-            App.FrostRPC?.SetDialog("About");
-
             new Elements.About.MainWindow().ShowDialog();
-
-            App.FrostRPC?.ClearDialog();
-        }
-
-        private void OpenAccountManager()
-        {
-            App.FrostRPC?.SetDialog("Account Manager");
-
-            new Elements.AccountManagers.MainWindow().ShowDialog();
-
-            App.FrostRPC?.ClearDialog();
         }
 
         private void CloseWindow() => RequestCloseWindowEvent?.Invoke(this, EventArgs.Empty);
@@ -113,7 +98,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             Process.Start(startInfo);
 
-            App.FrostRPC?.Dispose();
             CloseWindow();
         }
     }

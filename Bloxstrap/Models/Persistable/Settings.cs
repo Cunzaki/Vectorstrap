@@ -14,7 +14,7 @@ namespace Bloxstrap.Models.Persistable
         public bool PlaytimeCounter { get; set; } = true;
         public TrayDoubleClickAction DoubleClickAction { get; set; } = TrayDoubleClickAction.ServerInfo;
         public bool UseDisableAppPatch { get; set; } = false;
-        public bool ShowUsingFroststrapRPC { get; set; } = true;
+        public bool ShowUsingFroststrapRPC { get; set; } = false;
         public bool UseDiscordRichPresence { get; set; } = true;
         public bool HideRPCButtons { get; set; } = true;
         public bool EnableCustomStatusDisplay { get; set; } = true;
@@ -66,7 +66,7 @@ namespace Bloxstrap.Models.Persistable
         public string BootstrapperTitle { get; set; } = App.ProjectName;
         public string BootstrapperIconCustomLocation { get; set; } = "";
         public string DownloadingStringFormat { get; set; } = Strings.Bootstrapper_Status_Downloading + " {0} - {1}MB / {2}MB";
-        public Theme Theme { get; set; } = Theme.Default;
+        public Theme Theme { get; set; } = Theme.Vectorstrap;
         public string? CustomFontPath { get; set; } = null;
 
         // Settings Page
@@ -82,7 +82,7 @@ namespace Bloxstrap.Models.Persistable
         // Misc Stuff
         public bool IsNavigationSidebarExpanded { get; set; } = true;
         public string SelectedRegion { get; set; } = string.Empty;
-        public bool ForceLocalData { get; set; } = false;
+        public bool ForceLocalData { get; set; } = true;
         public bool DebugDisableVersionPackageCleanup { get; set; } = false;
     }
 }

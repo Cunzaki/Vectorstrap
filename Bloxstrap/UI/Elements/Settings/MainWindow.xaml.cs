@@ -145,22 +145,6 @@ namespace Bloxstrap.UI.Elements.Settings
                 App.SoftTerminate();
         }
 
-        private void LaunchButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (App.Settings.Prop.SaveAndLaunchToPlayer)
-            {
-                viewModel.SaveAndLaunch("player");
-            }
-            else
-            {
-                var menu = LaunchButton.ContextMenu;
-                menu.PlacementTarget = LaunchButton;
-                menu.Placement = System.Windows.Controls.Primitives.PlacementMode.Center;
-                menu.VerticalOffset = 50;
-                menu.IsOpen = true;
-            }
-        }
-
         public void ShowLoading(string message = "Loading...")
         {
             LoadingOverlayText.Text = message;

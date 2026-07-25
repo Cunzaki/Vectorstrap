@@ -660,7 +660,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Inspirations</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>A Fishstrap/Bloxstrap Fork.</value>
+    <value>Roblox channel bootstrapper for Vector users. Based on Froststrap / Fishstrap / Bloxstrap. Made by Cunzaki.</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
     <value>Discord Server</value>
@@ -1159,7 +1159,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Settings saved!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Froststrap Settings</value>
+    <value>Vectorstrap</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Choose preferred language</value>

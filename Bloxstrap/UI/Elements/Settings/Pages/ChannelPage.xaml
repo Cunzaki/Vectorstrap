@@ -17,8 +17,8 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_Channel_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <TextBlock Text="Froststrap" FontSize="20" FontWeight="Bold" Margin="0,16,0,0" />
-        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Title}" Description="Choose how Froststrap handles automatic updates.">
+        <TextBlock Text="Vectorstrap" FontSize="20" FontWeight="Bold" Margin="0,16,0,0" />
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Title}" Description="Choose how Vectorstrap handles automatic updates.">
             <ComboBox ItemsSource="{Binding UpdateCheckValues}" 
               SelectedItem="{Binding SelectedUpdateCheck, Mode=TwoWay}" 
               Width="200">
@@ -31,8 +31,8 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-            Header="Save And Launch Action"
-            Description="Adds an option so whenever clicking save and launch, it will ask if to studio or player.">
+            Header="Save and launch"
+            Description="When enabled, Save and Launch starts Roblox Player immediately.">
             <ui:ToggleSwitch IsChecked="{Binding SaveAndLaunchToPlayer, Mode=TwoWay}" />
         </controls:OptionControl>
 
