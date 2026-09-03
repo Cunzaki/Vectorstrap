@@ -17,7 +17,7 @@
              Height="700"
              Background="{ui:ThemeResource ApplicationBackgroundBrush}"
              ExtendsContentIntoTitleBar="True"
-             WindowBackdropType="Mica"
+             WindowBackdropType="None"
              WindowStartupLocation="CenterScreen"
              Closing="WpfUiWindow_Closing"
              Closed="WpfUiWindow_Closed">
@@ -41,7 +41,7 @@
             Message="{x:Static resources:Strings.Menu_SettingsSaved_Message}"
             Background="#CC1A1A1A" Icon="CheckmarkCircle24" Timeout="3000" Margin="200,0,200,40" Grid.RowSpan="10" Panel.ZIndex="9" />
 
-        <ui:TitleBar Padding="8" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" UseSnapLayout="True" Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Bloxstrap.ico" />
+        <ui:TitleBar Padding="8" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" UseSnapLayout="True" Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Vectorstrap.ico" />
 
         <Grid x:Name="RootGrid" Grid.Row="1" Margin="10,8,0,0" Visibility="Visible">
             <Grid.RowDefinitions>
@@ -53,11 +53,23 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ui:NavigationCompact x:Name="RootNavigation" Grid.Row="1" Grid.Column="0" Margin="0,0,20,0" Frame="{Binding ElementName=RootFrame}" IsExpanded="{Binding IsSidebarExpanded, Mode=TwoWay}" MaxWidth="215" SelectedPageIndex="0" FooterAlwaysVisible="True">
+            <ui:NavigationCompact x:Name="RootNavigation" Grid.Row="1" Grid.Column="0" Margin="0,0,20,0" Frame="{Binding ElementName=RootFrame}" IsExpanded="{Binding IsSidebarExpanded, Mode=TwoWay}" MaxWidth="240" SelectedPageIndex="0" FooterAlwaysVisible="True">
                 <ui:NavigationCompact.Items>
-                    <ui:NavigationItem Content="Channels &amp; Versions" PageType="{x:Type pages:ChannelPage}" Icon="BranchCompare24" IconSize="20" Tag="channel" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_RobloxSettings_Title}" PageType="{x:Type pages:RobloxSettingsPage}" Icon="SquareHintApps24" IconSize="20" Tag="robloxsettings" x:Name="gbs" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" PageType="{x:Type pages:BehaviourPage}" Icon="PlaySettings20" IconSize="20" Tag="bootstrapper" />
+                    <ui:NavigationHeader Text="Roblox" />
+                    <ui:NavigationItem Content="Channel" PageType="{x:Type pages:RobloxChannelPage}" Icon="BranchCompare24" IconSize="20" Tag="roblox-channel" />
+                    <ui:NavigationItem Content="Updates &amp; install" PageType="{x:Type pages:RobloxUpdatesPage}" Icon="ArrowDownload24" IconSize="20" Tag="roblox-updates" />
+                    <ui:NavigationItem Content="In-game settings" PageType="{x:Type pages:RobloxSettingsPage}" Icon="SquareHintApps24" IconSize="20" Tag="robloxsettings" x:Name="gbs" />
+
+                    <ui:NavigationSeparator />
+
+                    <ui:NavigationHeader Text="Bootstrapper" />
+                    <ui:NavigationItem Content="Launch options" PageType="{x:Type pages:LaunchOptionsPage}" Icon="PlaySettings20" IconSize="20" Tag="launch-options" />
+                    <ui:NavigationItem Content="Maintenance" PageType="{x:Type pages:MaintenancePage}" Icon="Broom24" IconSize="20" Tag="maintenance" />
+
+                    <ui:NavigationSeparator />
+
+                    <ui:NavigationHeader Text="App" />
+                    <ui:NavigationItem Content="vectorstrap" PageType="{x:Type pages:VectorstrapAppPage}" Icon="Settings20" IconSize="20" Tag="vectorstrap-app" />
                 </ui:NavigationCompact.Items>
                 <ui:NavigationCompact.Footer>
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" Icon="Info24" IconSize="20" Command="{Binding OpenAboutCommand, Mode=OneTime}" />

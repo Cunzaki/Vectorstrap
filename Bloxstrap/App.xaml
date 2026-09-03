@@ -14,6 +14,7 @@
                 <ui:ThemesDictionary Theme="Dark" />
                 <ui:ControlsDictionary />
                 <ResourceDictionary Source="UI/Style/Vectorstrap.xaml" />
+                <ResourceDictionary Source="UI/Style/VectorstrapLaunch.xaml" />
                 <!--  NOTE: WpfUiWindow::ApplyTheme relies on this order.  -->
                 <ResourceDictionary Source="UI/Style/Default.xaml" />
             </ResourceDictionary.MergedDictionaries>

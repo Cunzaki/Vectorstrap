@@ -1,0 +1,27 @@
+<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.VectorstrapAppPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
+      xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.Settings"
+      d:DataContext="{d:DesignInstance Type=models:ChannelViewModel}"
+      mc:Ignorable="d"
+      Title="Vectorstrap"
+      Scrollable="True">
+
+    <StackPanel Margin="0,0,14,14">
+        <TextBlock Text="vectorstrap" FontSize="22" FontWeight="SemiBold" Margin="0,0,0,4" />
+        <TextBlock Margin="0,0,0,16" Text="Bootstrapper preferences for Vectorstrap itself." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <controls:OptionControl
+            Header="Save and launch"
+            Description="When enabled, Save and Launch starts Roblox Player immediately.">
+            <ui:ToggleSwitch IsChecked="{Binding SaveAndLaunchToPlayer, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <TextBlock Margin="0,16,0,0" TextWrapping="Wrap" FontSize="13" Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                   Text="Vectorstrap does not auto-update itself. Install new builds manually from the GitHub releases page when you want to upgrade." />
+    </StackPanel>
+</ui:UiPage>

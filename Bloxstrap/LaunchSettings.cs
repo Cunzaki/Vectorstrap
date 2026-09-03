@@ -48,11 +48,7 @@ namespace Bloxstrap
 
         public LaunchFlag GameShortcutFlag          { get; } = new("gameshortcut");
 
-#if DEBUG
         public bool BypassUpdateCheck => true;
-#else
-        public bool BypassUpdateCheck => UninstallFlag.Active || WatcherFlag.Active;
-#endif
 
         public LaunchMode RobloxLaunchMode { get; set; } = LaunchMode.None;
 

@@ -1,0 +1,9 @@
+#!/system/bin/sh
+# ASCII drool — works in every adb shell / terminal
+i=0
+while [ $i -lt 100 ]; do
+  printf ':P '
+  i=$((i + 1))
+done
+echo ""
+echo "oii vey g your root now"

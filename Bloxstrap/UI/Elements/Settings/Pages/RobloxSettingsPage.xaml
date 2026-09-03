@@ -1,4 +1,4 @@
-﻿<ui:UiPage
+<ui:UiPage
     x:Class="Bloxstrap.UI.Elements.Settings.Pages.RobloxSettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -15,6 +15,7 @@
     Scrollable="True"
     mc:Ignorable="d">
     <StackPanel Margin="0,0,14,14">
+        <TextBlock Text="In-game settings" FontSize="22" FontWeight="SemiBold" Margin="0,0,0,4" />
         <TextBlock
             Margin="0,0,0,16"
             FontSize="14"

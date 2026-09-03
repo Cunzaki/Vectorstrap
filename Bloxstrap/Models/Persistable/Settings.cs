@@ -70,7 +70,7 @@ namespace Bloxstrap.Models.Persistable
         public string? CustomFontPath { get; set; } = null;
 
         // Settings Page
-        public UpdateCheck UpdateChecks { get; set; } = UpdateCheck.Stable;
+        public UpdateCheck UpdateChecks { get; set; } = UpdateCheck.Disabled;
         public bool SaveAndLaunchToPlayer { get; set; } = true;
         public bool WPFSoftwareRender { get; set; } = false;
         public bool UpdateRoblox { get; set; } = true;

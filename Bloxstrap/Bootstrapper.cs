@@ -205,7 +205,7 @@ namespace Bloxstrap
             if (connectionResult is not null)
                 HandleConnectionError(connectionResult);
 
-#if (!DEBUG || DEBUG_UPDATER) && !QA_BUILD
+#if false && (!DEBUG || DEBUG_UPDATER) && !QA_BUILD
             if (App.Settings.Prop.UpdateChecks != UpdateCheck.Disabled && !App.LaunchSettings.UpgradeFlag.Active)
             {
                 bool updatePresent = await CheckForUpdates();

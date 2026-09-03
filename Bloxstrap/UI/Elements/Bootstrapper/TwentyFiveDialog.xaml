@@ -1,4 +1,4 @@
-﻿<base:WpfUiWindow
+<base:WpfUiWindow
     xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
     x:Class="Bloxstrap.UI.Elements.Bootstrapper.TwentyFiveDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

@@ -418,8 +418,10 @@ namespace Bloxstrap
 
                 Locale.Set(Settings.Prop.Locale);
 
-                if (!LaunchSettings.BypassUpdateCheck)
-                    Installer.HandleUpgrade();
+                // Vectorstrap: no self-update / install overwrite prompts (manual updates only)
+                Settings.Prop.UpdateChecks = UpdateCheck.Disabled;
+                Settings.Prop.BackgroundUpdatesEnabled = false;
+                Settings.Save();
 
                 WindowsRegistry.RegisterApis();
 

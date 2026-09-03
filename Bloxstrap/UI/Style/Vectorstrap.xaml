@@ -5,11 +5,11 @@
     <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#26000000" />
     <SolidColorBrush x:Key="NormalDarkAndLightBackground" Color="#1A9D4EDD" />
     <Color x:Key="ControlFillColorDefault">#33000000</Color>
-    <LinearGradientBrush x:Key="ApplicationBackground" StartPoint="1,1" EndPoint="0,0">
-        <GradientStop Offset="0.0" Color="#050508" />
-        <GradientStop Offset="0.45" Color="#120818" />
-        <GradientStop Offset="1.0" Color="#1E0B2E" />
+    <LinearGradientBrush x:Key="VectorstrapLogoGradient" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="#5CE1FF" />
+        <GradientStop Offset="1" Color="#0066FF" />
     </LinearGradientBrush>
+    <SolidColorBrush x:Key="ApplicationBackground" Color="#121212" />
 
     <Style x:Key="SquareProgressBarStyle" TargetType="ProgressBar" BasedOn="{StaticResource {x:Type ProgressBar}}">
         <Setter Property="Template">

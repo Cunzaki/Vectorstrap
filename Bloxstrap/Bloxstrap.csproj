@@ -8,7 +8,7 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
-    <ApplicationIcon>Bloxstrap.ico</ApplicationIcon>
+    <ApplicationIcon>Vectorstrap.ico</ApplicationIcon>
     <Version>1.5.0</Version>
     <FileVersion>1.5.0</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -20,7 +20,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Resource Include="Bloxstrap.ico" />
+    <Resource Include="Vectorstrap.ico" />
+    <Resource Include="Resources\VectorstrapLogo.png" />
+    <Resource Include="Resources\VectorstrapLogo32.png" />
 	<Resource Include="Resources\BootstrapperStyles\TwentyFiveDialog\PlayerLogo.png" />
     <Resource Include="Resources\BootstrapperStyles\TwentyFiveDialog\Roblox.png" />
     <Resource Include="Resources\BootstrapperStyles\TwentyFiveDialog\Studio.png" />

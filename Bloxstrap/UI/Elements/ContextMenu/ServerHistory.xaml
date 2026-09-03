@@ -1,4 +1,4 @@
-﻿<base:WpfUiWindow
+<base:WpfUiWindow
     x:Class="Bloxstrap.UI.Elements.ContextMenu.ServerHistory"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -36,7 +36,7 @@
             Grid.ColumnSpan="2"
             Padding="8"
             CanMaximize="False"
-            Icon="pack://application:,,,/Bloxstrap.ico"
+            Icon="pack://application:,,,/Vectorstrap.ico"
             KeyboardNavigation.TabNavigation="None"
             ShowMaximize="False"
             ShowMinimize="False" />
